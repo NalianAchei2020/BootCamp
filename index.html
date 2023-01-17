@@ -8,6 +8,8 @@
     <link rel="stylesheet"  href="boostrap//boot/css/bootstrap.min.css">
     <link rel="stylesheet"  href="style.css" >
     <link rel="stylesheet" href="font/css/all.min.css" />
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
 </head>
 <body>
  <nav class="navbar navbar-expand-lg bg-dark
@@ -33,7 +35,7 @@
          </a>
       </li>
       <li class="nav-item">
-         <a href="#instructor" class="nav-link text-white">
+         <a href="#instructors" class="nav-link text-white">
             Instructor
          </a>
       </li>
@@ -56,7 +58,8 @@
          the latest and greatest technologies to prepare them for 
          their first dev rule  
          </p>
-         <button class="btn btn-primary btn-lg w-50">
+         <button class="btn btn-primary btn-lg w-50"
+         data-bs-toggle="modal" data-bs-target="#enroll">
             Enroll
          </button>
       </div>
@@ -72,7 +75,7 @@
    Sign Up For Our NewsLetter
 </h3>
 <div class="input-group w-90 news-input">
-   <input class="form-control placeholder="Enter Email"/>
+   <input class="form-control" placeholder="Enter Email"/>
    <button class="btn btn-dark btn-lg"
    type="submit">
       Subcribe
@@ -408,11 +411,91 @@
       </li>
     </ul>     
       </div>
-      <div class="col-md">
-         
+      <div class="col-md" >
+        <div id="map"></div> 
       </div>
    </div>
 </section>
+<!--Footer-->
+<footer class="p-5 bg-dark text-white text-center
+position-relative">
+<div class="container">
+   <p class="lead">
+    Copyright &copy: 2023 Frontend BootCamp  
+   </p>
+   <a href="#" class="position-absolute bottom-0 end-0 
+   p-5">
+   <h1><i class="fa-solid fa-circle-up"></i></h1>
+</a>
+</div>
+</footer>
+
+<!-- Modal -->
+<div class="modal fade" id="enroll" tabindex="-1" role="dialog" aria-labelledby="enrolllabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="enrolllabel">
+            <p class="lead">
+               Fill out this form and we will get back to you</p>
+         </h5>
+         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+           <form>
+            <div class="mb-3">
+               <label for="first-name" class="col-form-label">
+                  First Name
+               </label>
+               <input type="text" class="form-control" id="first-name">
+            </div>
+            <div class="mb-3">
+               <label for="last-name" class="col-form-label">
+                  Last Name
+               </label>
+               <input type="text" class="form-control" id="first-name">
+            </div>
+            <div class="mb-3">
+               <label for="email" class="col-form-label">
+                  Email
+               </label>
+               <input type="text" class="form-control" id="first-name">
+            </div>
+            <div class="mb-3">
+               <label for="phone" class="col-form-label">
+                  Phone:
+               </label>
+               <input type="text" class="form-control" id="first-name">
+            </div>
+           </form> 
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+         <button type="button" class="btn btn-primary">Submit</button>
+       </div>
+     </div>
+   </div>
+ </div>
+
+ <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+ <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
 <script src="boostrap/boot/js/bootstrap.min.js"></script>
+<script>
+   mapboxgl.accessToken= 'pk.eyJ1IjoibmFsaWFuYWNoZWkiLCJhIjoiY2xkMGF6NHFqMnc3cDN4bXNteDJka2hyZSJ9.Zul-bS17jLSbG-YrDtz2eQ'
+   var map = new mapboxgl.Map({
+     container: 'map',
+     style: 'mapbox://styles/mapbox/streets-v12',
+     center: [-71.060982, 42.35725],
+     zoom: 18
+   });
+   map.addControl(
+new MapboxDirections({
+accessToken: mapboxgl.accessToken
+}),
+'top-left'
+);
+</script>
 </body>
 </html>
