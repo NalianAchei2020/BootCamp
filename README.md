@@ -19,3 +19,5 @@ Get mapbox cdn at
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
 
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+   
+SEE PROJECT OUTPUT HERE:  https://nalianachei2020.github.io/BootCamp/
