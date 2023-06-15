@@ -125,7 +125,3 @@ Feel free to check the [issues page](https://github.com/NalianAchei2020/BootCamp
 If you like this project, please do well to give a star
 
 
-## 📝 License <a name="license"></a>
-
-This project is [MIT](https://github.com/NalianAchei2020/Portfolio/blob/portfolio-feature/LICENSE) licensed
-
